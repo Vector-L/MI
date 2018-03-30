@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 评论留言 </title>
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="Vector">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style type="text/css">
+        body{font: 14px "微软雅黑";}
+        #wrap{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        #inp{
+            width: 478px;
+            height: 200px;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            color: #006600;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        button{
+            float: right;
+            width: 80px;
+            height: 30px;
+            margin: 20px;
+            color: #ffff99;
+            font-weight: bold;
+            background: #108bb4;
+            border-radius: 10px;
+        }
+        p{
+            margin-top: 100px;
+            color: #006600;
+        }
+        #list li{
+            margin: 20px 0;
+            text-indent: 1em;
+            color: #c0c0c0;
+            border-bottom: 1px dashed #666;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <textarea id="inp" placeholder="请输入..."></textarea>
+    <button id="submit">提交</button>
+    <button id="reset">重置</button>
+    <p id="title"></p>
+    <ol id="list">
+    </ol>
+</div>
+<script>
+    var oInp = document.getElementById("inp"),
+        oBtn = document.getElementById("submit"),
+        oReset = document.getElementById("reset"),
+        oTitle = document.getElementById("title"),
+        oList = document.getElementById("list");
+    oBtn.onclick = function(){
+        if(oInp.value !== ""){
+            oTitle.innerHTML = "历史留言：";
+            oList.innerHTML += "<li>" + oInp.value + "</li>";
+            oInp.value = "";
+        }else{
+            alert("请先输入内容再提交！");
+        }
+    }
+    oReset.onclick = function(){
+        oInp.value = "";
+    }
+</script>
+</body>
+</html>
